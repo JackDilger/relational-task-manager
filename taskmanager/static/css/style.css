@@ -14,8 +14,11 @@ main {
 
 #select-element-1 {
     background-color: red;
+    margin-bottom: 50px;
+    margin-top: 100px;
 }
 
 #select-element {
     background-color:blue;
+    margin-bottom: 50px;
 }
