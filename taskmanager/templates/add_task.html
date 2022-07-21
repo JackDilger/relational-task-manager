@@ -47,15 +47,14 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <label id="label_category_id" for="category_id">
-                    Choose Category
+                <label id="label_category_id" for="category_id">Choose Category</label>
                     <select aria-labelledby="label_category_id" id="category_id" name="category_id" class="validate" required>
                         
                         {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
-                </label>
+                
 
             </div>
         </div>
