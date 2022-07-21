@@ -11,3 +11,11 @@ main {
 #submit-task-btn {
     margin-top: 50px;
 }
+
+#select-element-1 {
+    background-color: red;
+}
+
+#select-element {
+    background-color:blue;
+}
