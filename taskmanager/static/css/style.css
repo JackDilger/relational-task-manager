@@ -7,3 +7,7 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+#submit-task-btn {
+    margin-top: 50px;
+}
