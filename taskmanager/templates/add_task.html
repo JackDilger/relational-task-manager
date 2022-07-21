@@ -45,20 +45,23 @@
             </div>
         </div>
         <!-- category id -->
-        <div class="row"  id="select-element">
+        <div class="row"  id="choose-player-rating-row">
             <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <label for="category_id">
-                    Choose Category
+                <i class="fa-solid fa-star prefix"></i>
+                <label class="white-text" for="player_rating">
+                    Choose Player Rating
                     <br>
-                    <select id="category_id" name="category_id" class="validate" required>
-                        {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.category_name }}</option>
-                        {% endfor %}
-                    </select>
+                <select id="player_rating" name="player_rating" class="validate white-text" required>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Star</option>
+                    <option value="3">3 Star</option>
+                    <option value="4">4 Star</option>
+                    <option value="5">5 Star</option>
+                </select>
                 </label>
             </div>
         </div>
+
 
         <div class="row"  id="select-element-1">
             <div class="input-field col s12">
