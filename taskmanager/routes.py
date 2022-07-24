@@ -18,6 +18,13 @@ def categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
+        # this route allows admin users to add a new region
+        existing_category = Category.query.filter(Category.category_name == \
+                                           request.form.get("category_name"))
+        if existing_category:
+            flash("Category already exists")
+            return redirect(url_for("categories"))
+        # add category
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
         db.session.commit()
@@ -80,7 +87,7 @@ def delete_task(task_id):
     db.session.delete(task)
     db.session.commit()
     return redirect(url_for("home"))
-    
+
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -90,4 +97,3 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template("500.html"), 500
-
