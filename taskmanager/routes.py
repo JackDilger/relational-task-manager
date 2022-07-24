@@ -19,10 +19,11 @@ def categories():
 def add_category():
     if request.method == "POST":
         # this route allows admin users to add a new region
-        existing_category = Category.query.filter(Category.category_name == \
-                                           request.form.get("category_name"))
+        existing_category = Category.query.filter(
+            Category.category_name ==
+            request.form.get("category_name").lower()).all()
         if existing_category:
-            flash("Category already exists")
+            flash("category already exists")
             return redirect(url_for("categories"))
         # add category
         category = Category(category_name=request.form.get("category_name"))
