@@ -19,7 +19,7 @@ def categories():
 def add_category():
     if request.method == "POST":
         # Check is category already exists
-        existing_category = Category.query.filter(Category.category_name==request.form.get("category_name").all())
+        existing_category = Category.query.(Category.category_name==request.form.get("category_name"))
                                            
         if existing_category:
             return '<h1>Category Already Exists'
