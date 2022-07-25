@@ -53,6 +53,11 @@ def delete_category(category_id):
 def add_task():
     categories = list(Category.query.order_by(Category.category_name).all())
     if request.method == "POST":
+        existing_task = Task.query.filter(
+            Task.task_name ==
+            request.form.get("task_name")).all()
+        if existing_task:
+            return ("Task already exists")
         task = Task(
             task_name=request.form.get("task_name"),
             task_description=request.form.get("task_description"),
