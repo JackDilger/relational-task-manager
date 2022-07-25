@@ -18,8 +18,8 @@ def categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
-        # this route allows admin users to add a new region
-        existing_category = Category.query.filter(Category.category_name==request.form.get("category_name"))
+        # Check is category already exists
+        existing_category = Category.query.filter(Category.category_name==request.form.get("category_name").all)
                                            
         if existing_category:
             return '<h1>Category Already Exists'
