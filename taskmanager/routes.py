@@ -22,8 +22,7 @@ def add_category():
         existing_category = Category.query.filter(Category.category_name==request.form.get("category_name"))
                                            
         if existing_category:
-            flash("category already exists")
-            return redirect(url_for("categories"))
+            return '<h1>Category Already Exists'
         # add category
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
