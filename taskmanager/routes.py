@@ -18,7 +18,11 @@ def categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
-
+        existing_category = Category.query.filter(
+            Category.category_name ==
+            request.form.get("category_name")).all()
+        if existing_category:
+            return ("Username already exists")
         # add category
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
